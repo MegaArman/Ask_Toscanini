@@ -1,0 +1,15 @@
+[Unit]
+Description=Ask Toscanini Node Server
+After=network.target mongod.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/projects/ask_toscanini
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
